@@ -14,7 +14,7 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Question.objects.filter(
             pub_date__lte=timezone.now()
-            ).order_by('-pub_date')[:5]
+            ).order_by('question_text')
 
 class DetailView(generic.DetailView):
     model = Question
